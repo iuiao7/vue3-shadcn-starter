@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { Button } from '@/components/ui/button'
+import { useCounterStore } from '@/stores/counter'
+
+const counterStore = useCounterStore()
+
 defineProps<{
   msg: string
 }>()
@@ -12,6 +17,7 @@ defineProps<{
       <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
+    <Button @click="counterStore.increment">click me: {{ counterStore.count }}</Button>
   </div>
 </template>
 
